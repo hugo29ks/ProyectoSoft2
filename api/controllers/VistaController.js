@@ -36,7 +36,7 @@ module.exports = {
       .where({
         or: [
           {
-            nombreEvento: {
+            detalleEvento: {
               contains: parametros.busqueda
             }
           },
