@@ -1,0 +1,51 @@
+<% if (errors) {%>
+  <% errors.forEach(function (error) { %>
+    <%= __(error) %>
+  <% }) %>
+<% } %>
+
+<form role="form" action="/auth/local" method="post">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <center>
+    <div class="myform" style="width: 20rem;">
+      <br>
+      <br>
+      <center>
+        <strong>Ingrese los siguientes datos :</strong>
+        <br>
+        <br>
+        <input type="text" name="identifier" placeholder="Usuario o Correo">
+        <br>
+        <br>
+        <input type="password" name="password" placeholder="Contraseña">
+        <br>
+        <br>
+        <button type="submit" class="btn btn-primary">Ingresar</button>
+        <br>
+        <br>
+      </center>
+    </div>
+  </center>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+</form>
+
+<% if (Object.keys(providers).length) {%>
+  <h4>Tambien puedes usar las siguientes opciones:</h4>
+
+  <% Object.keys(providers).forEach(function (key) { %>
+    <a href="/auth/<%= providers[key].slug %>" role="button"><%= providers[key].name %></a>
+  <% }) %>
+<% } %>
+<br>
+<br>
+

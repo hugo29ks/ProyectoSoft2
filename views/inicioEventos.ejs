@@ -1,0 +1,46 @@
+<br>
+<br>
+<form action="/Vista/inicioEventos">
+  <center>
+  <div class="form-group row">
+    <label for="busqueda" class="col-4 col-form-label">
+      Busque por Nombre del Evento
+    </label>
+    <div class="col-4">
+      <input class="form-control" type="text" placeholder="Buscar" id="busqueda"
+             name="busqueda">
+    </div>
+    <button ><img src="https://image.freepik.com/iconos-gratis/buscar-lupa_318-73229.jpg" height="25px" width="25px" alt=""></button>
+  </div>
+  </center>
+</form>
+<br>
+
+<div id="contenedor" class="row">
+
+  <div class="list-group" class="col-md-4">
+    <a href="#" class="list-group-item active">Culturales</a>
+    <a href="#" class="list-group-item">Musica</a>
+    <a href="#" class="list-group-item">Deportes</a>
+  </div>
+
+  <% for(var i=0;i<eventos.length;i++){ %>
+  <div class="col-md-4">
+    <center>
+  <div class="card" style="width: 20rem;">
+    <img class="card-img-top" src="<%= eventos[i].imagenEvento%>" alt="Card image cap" height="150" width="320">
+    <div class="card-block">
+      <h4 class="card-title"><%= eventos[i].nombreEvento%></h4>
+      <p class="card-text"><%= eventos[i].detalleEvento%></p>
+      <form action="/Evento/detalleEvento">
+      <a href="/detalleEvento?id=<%=eventos[i].id%>" class="btn btn-primary">Ver Evento</a>
+      </form>
+    </div>
+  </div>
+    </center>
+  </div>
+  <% } %>
+</div>
+<br>
+<br>
+

@@ -1,0 +1,43 @@
+<br>
+<center><h1>DETALLES DEL EVENTO</h1><h2><%= evento.nombreEvento%></h2></center>
+<h2 id="latitud" style="display: none"><%= evento.latitud%></h2>
+<h2 id="longitud" style="display: none"><%= evento.longitud%></h2>
+<br>
+
+
+<center>
+<div class="row">
+
+  <div class="col-md-4">
+    <p><strong>Fecha:</strong> <%= evento.fechaEvento%></p>
+    <p><strong>Hora Inicio:</strong> <%= evento.horaInicio%></p>
+    <p><strong>Hora Fin:</strong> <%= evento.horaFin%></p>
+    <p><strong>Detalle Evento:</strong> <%= evento.detalleEvento%></p>
+    <p><strong>Precio:</strong> <%= evento.precio%>$</p>
+    <p><strong>Nombre Lugar:</strong> <%= evento.nombreLugar%></p>
+    <p><strong>Direccion:</strong> <%= evento.direccion%></p>
+  </div>
+<div id="map" style="width:500px;height:400px;"></div>
+  <script>
+
+    function myMap() {
+      var latitud = document.getElementById("latitud").innerHTML;
+      var longitud = document.getElementById("longitud").innerHTML;
+      var mapCanvas = document.getElementById("map");
+      var myCenter = new google.maps.LatLng(latitud,longitud);
+      var mapOptions = {center: myCenter, zoom: 15};
+      var map = new google.maps.Map(mapCanvas,mapOptions);
+      var marker = new google.maps.Marker({
+        position: myCenter,
+        animation: google.maps.Animation.BOUNCE
+      });
+      marker.setMap(map);
+    }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmx8gRaiFnyKC5jR8xnnpAn_BEQd1ee3s&callback=myMap"
+         ></script>
+  </center>
+</div>
+</center>
+<br>
+<br>
